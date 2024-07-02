@@ -45,11 +45,9 @@
 
      
       <div class="card mx-2" style="width: 18rem;">
-       
-         
             <div class="card-body">
               <img src="{{post.image.url}}" class="card-img-top" alt="...">
-              <h5 class="card-title">{{post.title}}</h5>
+              <h5 class="card-title"><a href="{% url 'detail_post' post.id%}" class="text-decoration-none">{{post.title}}</a></h5>
               <p class="card-text">
                   {{post.content | slice:"100"}}
               </p>
@@ -63,7 +61,6 @@
                   {% endfor %}
               </p>
             </div>
-         
         </div>
       {% endfor %}
     </div>
