@@ -42,9 +42,13 @@
     <h4>{{ data | length}} results found</h4>
     <div class="d-flex flex-wrap">
       {% for post in data %}
-      <div class="col-sm-3">
-          <div class="card m-2">
+
+     
+      <div class="card mx-2" style="width: 18rem;">
+       
+         
             <div class="card-body">
+              <img src="{{post.image.url}}" class="card-img-top" alt="...">
               <h5 class="card-title">{{post.title}}</h5>
               <p class="card-text">
                   {{post.content | slice:"100"}}
@@ -59,7 +63,7 @@
                   {% endfor %}
               </p>
             </div>
-          </div>
+         
         </div>
       {% endfor %}
     </div>
