@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from . import forms
 from . import models
 from django.contrib.auth.decorators import login_required
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 # Create your views here.
@@ -57,3 +57,9 @@ def delete_post(request,id):
     post = models.Post.objects.get(pk=id)
     post.delete()
     return redirect('homepage')
+
+class DeletePostView(DeleteView):
+    model = models.Post
+    template_name = 'delete.html'
+    pk_url_kwarg = 'id'
+    success_url = reverse_lazy('profile')
